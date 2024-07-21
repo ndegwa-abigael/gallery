@@ -3,14 +3,12 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
-
 // Define routes
 let index = require('./routes/index');
 let image = require('./routes/image');
 
 // connecting the database
-//let mongodb_url = 'mongodb://localhost:27017/';
-let mongodb_url = 'mongodb+srv://<abigael.ndegwa>:<Dev.Engineer@2024>@gallery.wc344.mongodb.net/darkroom-dev?retryWrites=true&w=majority';
+let mongodb_url = 'mongodb://localhost:27017/';
 let dbName = 'darkroom';
 mongoose.connect(`${mongodb_url}${dbName}`,{ useNewUrlParser: true , useUnifiedTopology: true }, (err)=>{
     if (err) console.log(err)
@@ -24,7 +22,6 @@ db.once('open', ()=>{
 
 // Initializing the app
 const app = express();
-
 
 // View Engine
 app.set('view engine', 'ejs');
